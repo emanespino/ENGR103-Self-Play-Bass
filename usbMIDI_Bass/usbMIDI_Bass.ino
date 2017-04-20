@@ -56,10 +56,11 @@
 // Add #include statements, #define statements, variables, etc. below ...
 int f1 = 1;
 
-const int STRING_1;
-const int STRING_2;
-const int STRING_3;
-const int STRING_4;
+// Pins for the solenoid strummers
+const int STRING_1 = 2;
+const int STRING_2 = 3;
+const int STRING_3 = 4;
+const int STRING_4 = 5;
 
 
 
@@ -113,6 +114,21 @@ void onNoteOn(byte channel, byte note, byte velocity) {
       case 60:
         digitalWrite(f1, HIGH);
 
+    }
+
+    switch((note / 4) - 4) {
+      case 0:
+        strumNote(STRING_1);
+        break;
+      case 1:
+        strumNote(STRING_2);
+        break;
+      case 2:
+        strumNote(STRING_3);
+        break;
+      case 3:
+        strumNote(STRING_4);
+        break;
     }
 
     // End NOTE OFF instrument control code here.
