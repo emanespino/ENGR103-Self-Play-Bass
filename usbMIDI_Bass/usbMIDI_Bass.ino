@@ -62,7 +62,8 @@ const int STRING_4 = 5;
 
 const int FRET_1 = 7;
 const int FRET_2 = 8;
-
+const int FRET_3 = 10;
+const int FRET_4 = 11;
 
 // End definitions.
 
@@ -137,7 +138,7 @@ void onNoteOn(byte channel, byte note, byte velocity) {
 void onNoteOff(byte channel, byte note, byte velocity) {
     digitalWrite(LED_BUILTIN, LOW);    // Turn OFF the built-in LED
     // Add NOTE OFF instrument control code below ...
-       
+
 
 
     // End NOTE OFF instrument control code here.
