@@ -159,5 +159,5 @@ void triggerFrets(int fret) {
     digitalWrite(FRETS[i], LOW);
   }
   if(fret > 0)
-    digitalWrite(FRETS[i - 1], HIGH);
+    digitalWrite(FRETS[fret - 1], HIGH);
 }
