@@ -54,10 +54,8 @@
  */
 
 // Add #include statements, #define statements, variables, etc. below ...
-int f1 = 1;
-
 // Pins for the solenoid strummers
-const int STRING_1 = 2;
+const int STRING_1 = 1;
 const int STRING_2 = 3;
 const int STRING_3 = 4;
 const int STRING_4 = 5;
@@ -77,11 +75,10 @@ void setup() {
     usbMIDI.setHandleNoteOff(onNoteOff);    // Set the NOTE OFF message event handler.
 
     // Initialize user-defined variables below ...
-    pinMode(f1,OUTPUT);
+    pinMode(STRING_1, OUTPUT);
 
 
     // End initialization here.
-    digitalWrite(f1, LOW);
 
 
     // Because there is no power/status LED, we blink the built-in LED on pin 13 to show that the board is functioning.
@@ -110,11 +107,6 @@ void loop() {
 void onNoteOn(byte channel, byte note, byte velocity) {
     digitalWrite(LED_BUILTIN, HIGH);   // Turn ON the built-in LED
     // Add NOTE ON instrument control code below ...
-    switch (note) {
-      case 60:
-        digitalWrite(f1, HIGH);
-
-    }
 
     switch((note / 4) - 4) {
       case 0:
@@ -143,11 +135,7 @@ void onNoteOn(byte channel, byte note, byte velocity) {
 void onNoteOff(byte channel, byte note, byte velocity) {
     digitalWrite(LED_BUILTIN, LOW);    // Turn OFF the built-in LED
     // Add NOTE OFF instrument control code below ...
-        switch (note) {
-      case 60:
-        digitalWrite(f1, LOW);
-        break;
-    }
+       
 
 
     // End NOTE OFF instrument control code here.
