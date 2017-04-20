@@ -60,11 +60,15 @@ const int STRING_2 = 2;
 const int STRING_3 = 4;
 const int STRING_4 = 5;
 
+/*
 const int FRET_1 = 7;
 const int FRET_2 = 8;
 const int FRET_3 = 10;
 const int FRET_4 = 11;
+*/
 
+const int FRETS[] = {7, 8, 10, 11};
+const int FRET_SIZE = 4;
 // End definitions.
 
 /*
@@ -111,6 +115,8 @@ void onNoteOn(byte channel, byte note, byte velocity) {
     digitalWrite(LED_BUILTIN, HIGH);   // Turn ON the built-in LED
     // Add NOTE ON instrument control code below ...
 
+    triggerFrets((note % 5) - 1);
+
     switch((note / 4) - 4) {
       case 0:
         strumNote(STRING_1);
@@ -146,4 +152,12 @@ void onNoteOff(byte channel, byte note, byte velocity) {
 
 void strumNote(int string) {
   digitalWrite(string, !digitalRead(string));
+}
+
+void triggerFrets(int fret) {
+  for(int i = fret; i < 4; i++) {
+    digitalWrite(FRETS[i], LOW);
+  }
+  if(fret > 0)
+    digitalWrite(FRETS[i - 1], HIGH);
 }
