@@ -56,10 +56,12 @@
 // Add #include statements, #define statements, variables, etc. below ...
 // Pins for the solenoid strummers
 const int STRING_1 = 1;
-const int STRING_2 = 3;
+const int STRING_2 = 2;
 const int STRING_3 = 4;
 const int STRING_4 = 5;
 
+const int FRET_1 = 7;
+const int FRET_2 = 8;
 
 
 // End definitions.
