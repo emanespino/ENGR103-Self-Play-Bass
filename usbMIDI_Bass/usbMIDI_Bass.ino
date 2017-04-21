@@ -58,7 +58,7 @@
 const int STRING_1 = 1;
 const int STRING_2 = 2;
 const int STRING_3 = 4;
-const int STRING_4 = 5;
+const int STRING_4 = 6;
 
 /*
 const int FRET_1 = 7;
@@ -67,7 +67,7 @@ const int FRET_3 = 10;
 const int FRET_4 = 11;
 */
 
-const int FRETS[] = {7, 8, 10, 11};
+const int FRETS[] = {7, 9, 10, 12};
 const int FRET_SIZE = 4;
 // End definitions.
 
