@@ -117,7 +117,7 @@ void onNoteOn(byte channel, byte note, byte velocity) {
 
     triggerFrets((note % 5) - 1);
 
-    switch((note / 4) - 4) {
+    switch(((note - 1) / 5) - 3) {
       case 0:
         strumNote(STRING_1);
         break;
