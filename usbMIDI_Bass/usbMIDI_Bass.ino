@@ -77,6 +77,13 @@ const int FRET_SIZE = 4;
  */
 void setup() {
     pinMode(LED_BUILTIN, OUTPUT);           // Set the built-in LED on pin 13 to output voltage (ON/OFF, HIGH/LOW).
+    pinMode(STRING_1, OUTPUT);
+    pinMode(STRING_2, OUTPUT);
+    pinMode(STRING_3, OUTPUT);
+    pinMode(STRING_4, OUTPUT);
+    for (i = 0; i < sizeof(FRETS) - 1; i++) {
+      pinMode(i, OUTPUT);
+    }
 
     usbMIDI.setHandleNoteOn(onNoteOn);      // Set the NOTE ON message event handler.
     usbMIDI.setHandleNoteOff(onNoteOff);    // Set the NOTE OFF message event handler.
