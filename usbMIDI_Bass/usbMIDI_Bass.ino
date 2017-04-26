@@ -81,7 +81,7 @@ void setup() {
     pinMode(STRING_2, OUTPUT);
     pinMode(STRING_3, OUTPUT);
     pinMode(STRING_4, OUTPUT);
-    for (i = 0; i < sizeof(FRETS) - 1; i++) {
+    for (int i = 0; i < sizeof(FRETS) - 1; i++) {
       pinMode(i, OUTPUT);
     }
 
