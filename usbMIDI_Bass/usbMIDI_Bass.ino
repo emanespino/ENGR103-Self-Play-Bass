@@ -122,7 +122,7 @@ void onNoteOn(byte channel, byte note, byte velocity) {
     digitalWrite(LED_BUILTIN, HIGH);   // Turn ON the built-in LED
     // Add NOTE ON instrument control code below ...
 
-    triggerFrets((note % 5) - 1);
+    triggerFrets((note - 1) % 5);
 
     switch(((note - 1) / 5) - 3) {
       case 0:
