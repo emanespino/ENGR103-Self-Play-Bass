@@ -92,6 +92,14 @@ void setup() {
     pinMode(STRING_1, OUTPUT);
 
 
+    digitalWrite(STRING_1, HIGH);
+    digitalWrite(STRING_2, HIGH);
+    digitalWrite(STRING_3, HIGH);
+    digitalWrite(STRING_4, HIGH);
+    for(int i = 0; i < FRET_SIZE; i++) {
+      digitalWrite(FRETS[i], HIGH);
+    }
+
     // End initialization here.
 
 
