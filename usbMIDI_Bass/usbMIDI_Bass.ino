@@ -67,7 +67,7 @@ const int FRET_3 = 10;
 const int FRET_4 = 11;
 */
 
-const int FRETS[] = {5, 6, 7, 8};
+const int FRETS[] = {8, 7, 6, 5};
 const int FRET_SIZE = 4;
 // End definitions.
 
