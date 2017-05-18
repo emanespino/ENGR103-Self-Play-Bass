@@ -57,8 +57,8 @@
 // Pins for the solenoid strummers
 const int STRING_1 = 1;
 const int STRING_2 = 2;
-const int STRING_3 = 4;
-const int STRING_4 = 6;
+const int STRING_3 = 3;
+const int STRING_4 = 4;
 
 /*
 const int FRET_1 = 7;
@@ -67,7 +67,7 @@ const int FRET_3 = 10;
 const int FRET_4 = 11;
 */
 
-const int FRETS[] = {7, 9, 10, 12};
+const int FRETS[] = {5, 6, 7, 8};
 const int FRET_SIZE = 4;
 // End definitions.
 
@@ -121,10 +121,10 @@ void loop() {
 void onNoteOn(byte channel, byte note, byte velocity) {
     digitalWrite(LED_BUILTIN, HIGH);   // Turn ON the built-in LED
     // Add NOTE ON instrument control code below ...
+  if ((note >= 40) && (note <= 59)) {
+    triggerFrets(note % 5);
 
-    triggerFrets((note - 1) % 5);
-
-    switch(((note - 1) / 5) - 3) {
+    switch(((note) / 5) - 8) {
       case 0:
         strumNote(STRING_1);
         break;
@@ -138,6 +138,7 @@ void onNoteOn(byte channel, byte note, byte velocity) {
         strumNote(STRING_4);
         break;
     }
+  }
 
     // End NOTE OFF instrument control code here.
 }
@@ -162,9 +163,9 @@ void strumNote(int string) {
 }
 
 void triggerFrets(int fret) {
-  for(int i = fret; i < 4; i++) {
-    digitalWrite(FRETS[i], LOW);
+    for(int i = fret; i < 4; i++) {
+      digitalWrite(FRETS[i], HIGH);
+    }
+    if(fret > 0)
+      digitalWrite(FRETS[fret - 1], LOW);
   }
-  if(fret > 0)
-    digitalWrite(FRETS[fret - 1], HIGH);
-}
