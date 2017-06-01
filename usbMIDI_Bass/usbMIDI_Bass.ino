@@ -127,24 +127,26 @@ void loop() {
  * VELOCITY (0 to 127 decimal; 0x00 to 0x7F hexadecimal) The volume of the note.
  */
 void onNoteOn(byte channel, byte note, byte velocity) {
+  if(channel == 14) {
     digitalWrite(LED_BUILTIN, HIGH);   // Turn ON the built-in LED
-    // Add NOTE ON instrument control code below ...
-  if ((note >= 40) && (note <= 59)) {
-    triggerFrets(note % 5);
+      // Add NOTE ON instrument control code below ...
+    if ((note >= 40) && (note <= 59)) {
+      triggerFrets(note % 5);
 
-    switch(((note) / 5) - 8) {
-      case 0:
-        strumNote(STRING_1);
-        break;
-      case 1:
-        strumNote(STRING_2);
-        break;
-      case 2:
-        strumNote(STRING_3);
-        break;
-      case 3:
-        strumNote(STRING_4);
-        break;
+      switch(((note) / 5) - 8) {
+        case 0:
+          strumNote(STRING_1);
+          break;
+        case 1:
+          strumNote(STRING_2);
+          break;
+        case 2:
+          strumNote(STRING_3);
+          break;
+        case 3:
+          strumNote(STRING_4);
+          break;
+      }
     }
   }
 
